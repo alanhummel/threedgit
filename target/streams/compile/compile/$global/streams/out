@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/ahummel/Projects/threedgit/app/tools/GoodWindowsExec.java:54:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable exitVal[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class tools.GoodWindowsExec[0m
+[0m[[0m[31merror[0m] [0m[0m            System.out.println("ExitValue: " + exitVal);[0m

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snapshot</title>
+</head>
+<body class="mainFrame">
+<link rel="stylesheet" type="text/css" media="screen" href="css/SnapshotUI.css" />
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/mustache.min.js"></script>
+<!-- Highlight.js style  -->
+<link rel="stylesheet" href="css/highlight-styles/vs2015.css">
+
+<div id="snapshotContent" class="uppercase"></div>
+<script id="snapshotTpl" type="text/template">
+    <div class="snapshotHeader">
+        <h1><div class="warning">{{branch}}</div></h1>
+        <p>
+        <div class="normalText">Date: {{date}}</div>
+        </p>
+        <p>
+        <div class="normalText">Author: {{author}}</div>
+        </p>
+        <p>
+        <div class="normalText">Description: {{description}}</div>
+        </p>
+    </div>
+
+    <div class="snapshotColumn">
+        <h2><div class="warning">Main Content</div></h2>
+        <pre>
+                <div class="diff logCase">
+                    <code>
+                    {{diff}}
+                    </code>
+                </div>
+            </pre>
+    </div>
+
+    <div class="snapshotFooter">
+        <p>{{commit}}</p>
+    </div>
+</script>
+
+<script src="js/highlight.pack.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        console.log("ready");
+
+        $.getJSON('doc/snapshotData.json', function(data) {
+            var template = $('#snapshotTpl').html();
+            var html = Mustache.to_html(template, data);
+            var colorBlack = "rgba(0,0,0,0.00)";
+            var colorEmergencyRed = "#8B142A";
+
+            $('#snapshotContent').html(html);
+
+            $('pre code').each(function (i, block) {
+                hljs.highlightBlock(block);
+            });
+
+            $('.warning').contents().filter(function () {
+                return this.nodeType === 3;
+            }).wrap('<span class="warningColor">');
+
+            $( ".warningColor" ).animate({
+                backgroundColor: colorEmergencyRed
+            }, 1000 ).animate({
+                backgroundColor: colorBlack
+            }, 1000 ).animate({
+                backgroundColor: colorEmergencyRed
+            }, 1000 ).animate({
+                backgroundColor: colorBlack
+            }, 1000 ).animate({
+                backgroundColor: colorEmergencyRed
+            }, 1000 );
+
+
+            //$( ".snapshotHeader" ).css( "border", "3px solid red" );
+            //$( ".snapshotColumn" ).css( "border", "3px solid red" );
+            //$( ".snapshotFooter" ).css( "border", "3px solid red" );
+        });
+
+
+
+    });
+
+</script>
+</body>
+</html>

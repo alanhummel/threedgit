@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/mustache.min.js"></script>
+</head>
+<body>
+    <div id="sampleArea"></div>
+
+    <script id="personTpl" type="text/template">
+        <h1>{{firstName}} {{lastName}}</h1>
+        <p>Blog URL: <a href="{{blogURL}}">{{blogURL}}</a></p>
+    </script>
+
+    <script type="text/javascript">
+        $.getJSON('doc/data.json', function(data) {
+            var template = $('#personTpl').html();
+            var html = Mustache.to_html(template, data);
+            $('#sampleArea').html(html);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+@font-face {
+    font-family: TerminalConsole; src: url('../fonts/ProFontWindows.ttf');
+}
+
+@font-face {
+    font-family: HeaderConsole; src: url('../fonts/Timeline.ttf');
+}
+
+
+
+.mainFrame {
+    font-family: TerminalConsole;
+    background-color: rgba(0,0,0,0.85);
+    margin: 0;
+    font-weight: bold;
+    color: rgba(190,203,202,1.00);
+    overflow: hidden;
+}
+
+.uppercase
+{
+    text-transform:uppercase;
+}
+
+.logCase
+{
+    font-weight: normal;
+    text-transform:none;
+    text-align: left;
+    font-family: monospace;
+    overflow:auto;
+    height:250px;
+    /*height: 14%;*/
+}
+
+
+
+.snapshotHeader {
+    font-family: HeaderConsole;
+    text-align: left;
+    font-size: 19px;
+    text-align: left;
+    padding: 5px;
+    height:25%;
+}
+
+.snapshotColumn {
+    font-family: TerminalConsole;
+    background-color: rgba(0,0,0,0.00);
+    text-align: center;
+    height:65%;
+}
+
+.snapshotFooter {
+    font-family: TerminalConsole;
+    background-color: rgba(0,0,0,0.00);
+    padding: 10px;
+    text-align: left;
+    height:10%;
+}
+
+.warningColor {
+    background-color: rgba(0,0,0,0.00);
+    color: rgba(255,255,255,0.75);
+}
+
+.normalText {
+    font-family: TerminalConsole;
+    font-size: 16px;
+    font-weight: bold;
+}

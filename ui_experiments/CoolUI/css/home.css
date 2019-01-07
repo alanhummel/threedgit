@@ -1,0 +1,89 @@
+.home{
+    /*position: absolute;*/
+    /*top: calc(50% - 85px);*/
+    /*left: calc(50% - 100px);*/
+    /*height: 150px;*/
+    width: 270px;
+    /*padding: 10px;*/
+    /*z-index: 2;*/
+    align-items: center;
+    align-content: center;
+    background-color: rgba(227, 227, 227, 0.7);
+    display: inline-block;
+    text-align: center;
+}
+
+.home input[type=text]{
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(86, 74, 64, 0.6);
+    border-radius: 2px;
+    color: #000000;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    margin-top: 10px;
+}
+
+.home input[type=password]{
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(86, 74, 64, 0.6);
+    border-radius: 2px;
+    color: #000000;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    margin-top: 10px;
+}
+
+.home input[type=button]{
+    width: 260px;
+    height: 35px;
+    background: #fff;
+    border: 1px solid #564a40;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #a18d6c;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 6px;
+    margin-top: 10px;
+}
+
+.home input[type=submit]{
+    width: 260px;
+    height: 35px;
+    background: #fff;
+    border: 1px solid #564a40;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #3b3029;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.home input[type=button]:hover{
+    opacity: 0.8;
+}
+
+.home input[type=submit]:hover{
+    opacity: 0.8;
+}
+
+.home input[type=button]:active{
+    opacity: 0.6;
+}
+
+.home input[type=submit]:active{
+    opacity: 0.6;
+}

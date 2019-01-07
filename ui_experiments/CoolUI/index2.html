@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196">
+		<link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<meta name="msapplication-TileColor" content="#2b5797">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+
+        <title></title>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Highlight.js style  -->
+        <link rel="stylesheet" href="css/highlight-styles/vs2015.css">
+        <script src="js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+
+        <link href="css/prettify-1.0.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+		<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+        
+        <script src="js/moment-with-locales.js"></script>
+        
+        
+        <script src="js/bootstrap-datetimepicker.js"></script>
+        
+        
+        
+        
+        
+    </head>
+
+    <body>
+        <h1 id="bootstrap-3-datepicker-v4-docs">Log-O-Mactic</h1>
+
+
+        <hr />
+        <h3 id="custom-icons">Search Log</h3>
+        <form class="example" action="action_page.php">
+
+            <div class="container">
+                <div class="col-sm-6" style="height:130px;">
+                    Start Date/Time: 
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepickerStart'>
+                            <input type='text' placeholder="Start Date/Time" class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar">
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    // Personalize the timepickers
+                    $(function () {
+                        $('#datetimepickerStart').datetimepicker({
+                            icons: {
+                                time: "fa fa-clock-o",
+                                date: "fa fa-calendar",
+                                up: "fa fa-arrow-up",
+                                down: "fa fa-arrow-down",
+                                previous: "fa fa-arrow-circle-left",
+                                next: "fa fa-arrow-circle-right"
+                            }
+                        });
+                    });
+                </script>
+                <div class="col-sm-6" style="height:130px;">
+                    End Date/Time: 
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepickerEnd'>
+                            <input type='text' placeholder="End Date/Time" class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar">
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    $(function () {
+                        $('#datetimepickerEnd').datetimepicker({
+                            icons: {
+                                time: "fa fa-clock-o",
+                                date: "fa fa-calendar",
+                                up: "fa fa-arrow-up",
+                                down: "fa fa-arrow-down",
+                                previous: "fa fa-arrow-circle-left",
+                                next: "fa fa-arrow-circle-right"
+                            }
+                        });
+                    });
+
+                    // Link the timepickers 
+                    $(function () {
+                        $('#datetimepickerStart').datetimepicker();
+                        $('#datetimepickerEnd').datetimepicker({
+                            useCurrent: false
+                        });
+                        $("#datetimepickerStart").on("dp.change", function (e) {
+                            $('#datetimepickerEnd').data("DateTimePicker").minDate(e.date);
+                        });
+                        $("#datetimepickerEnd").on("dp.change", function (e) {
+                            $('#datetimepickerStart').data("DateTimePicker").maxDate(e.date);
+                        });
+                    });
+                    
+                </script>
+
+
+            </div>
+            
+            <button type="submit"class="fa fa-search button search-Button"><b >      Search between these dates</b></button>  
+        </form>
+
+        <div >
+            <h3>Log results:</h3>
+            <pre>
+                <code class="accesslog">
+2018-07-27 20:59:11.466 [main] INFO  com.tarion.tools.ContentManagerTool - -ShareInfoInd:Allow Info Disclosure
+2018-07-27 20:59:11.575 [main] INFO  com.tarion.migration.MigrationMove - Total number of records to move: 154
+2018-07-27 20:59:11.591 [main] INFO  com.tarion.migration.MigrationMove - Loading 5 of 154
+2018-07-27 20:59:11.591 [main] INFO  com.tarion.migration.MigrationMove - Processing...
+2018-07-27 20:59:12.341 [main] INFO  com.tarion.migration.Accessibility - WARNING: In the following record with the 'ScannerID' attribute is NULL  :******Attributes:
+
+EnrolmentNumber : "2000100"
+ScanDate : "null"
+ReceivedDate : "2018-07-10"
+SubmittedDate : "null"
+StorageId : "null"
+SubmitMethod : "null"
+DateOfPossess : "null"
+CaseId : "0"
+CMFileName : "null"
+VBNumber : "509"
+SignatureDate : "null"
+ScannerID : "MZENAYE"
+TemplateType : "null"
+ShareInfoInd : "null"
+ICMParts1265 : "com.ibm.mm.sdk.common.DKChildCollection@23f5b5dc"
+DKParts : "com.ibm.mm.sdk.common.DKParts@34bde49d"
+2018-07-27 20:59:12.466 [main] INFO  com.tarion.migration.Accessibility - WARNING: In the following record with the 'CaseId' attribute is NULL  :******Attributes:
+
+EnrolmentNumber : "2081582"
+ScanDate : "null"
+ReceivedDate : "2018-05-25"
+SubmittedDate : "null"
+StorageId : "null"
+SubmitMethod : "null"
+DateOfPossess : "null"
+CaseId : "0"
+CMFileName : "null"
+VBNumber : "0"
+SignatureDate : "null"
+ScannerID : "null"
+TemplateType : "null"
+ShareInfoInd : "null"
+ICMParts1265 : "com.ibm.mm.sdk.common.DKChildCollection@71687585"
+DKParts : "com.ibm.mm.sdk.common.DKParts@1807f5a7"
+2018-07-27 20:59:12.481 [main] INFO  com.tarion.migration.Accessibility - WARNING: In the following record with the 'VBNumber' attribute is NULL  :******Attributes:
+
+EnrolmentNumber : "2081582"
+ScanDate : "null"
+ReceivedDate : "2018-05-25"
+SubmittedDate : "null"
+StorageId : "null"
+SubmitMethod : "null"
+DateOfPossess : "null"
+CaseId : "0"
+CMFileName : "null"
+VBNumber : "0"
+SignatureDate : "null"
+ScannerID : "null"
+TemplateType : "null"
+ShareInfoInd : "null"
+ICMParts1265 : "com.ibm.mm.sdk.common.DKChildCollection@71687585"
+DKParts : "com.ibm.mm.sdk.common.DKParts@1807f5a7"
+2018-07-27 20:59:12.528 [main] INFO  com.tarion.migration.Accessibility - WARNING: In the following record with the 'CaseId' attribute is NULL  :******Attributes:
+
+EnrolmentNumber : "1968310"
+ScanDate : "null"
+ReceivedDate : "2018-05-24"
+SubmittedDate : "null"
+StorageId : "null"
+SubmitMethod : "null"
+DateOfPossess : "null"
+CaseId : "0"
+CMFileName : "null"
+VBNumber : "0"
+SignatureDate : "null"
+ScannerID : "null"
+TemplateType : "null"
+ShareInfoInd : "null"
+ICMParts1265 : "com.ibm.mm.sdk.common.DKChildCollection@1b919693"
+DKParts : "com.ibm.mm.sdk.common.DKParts@7fb4f2a9"
+2018-07-27 20:59:12.575 [main] INFO  com.tarion.migration.Accessibility - WARNING: In the following record with the 'CaseId' attribute is NULL  :******Attributes:
+
+EnrolmentNumber : "1968310"
+ScanDate : "null"
+ReceivedDate : "2018-05-24"
+SubmittedDate : "null"
+StorageId : "null"
+SubmitMethod : "null"
+DateOfPossess : "null"
+CaseId : "0"
+CMFileName : "null"
+VBNumber : "0"
+SignatureDate : "null"
+ScannerID : "null"
+TemplateType : "null"
+ShareInfoInd : "null"
+ICMParts1265 : "com.ibm.mm.sdk.common.DKChildCollection@4dc27487"
+DKParts : "com.ibm.mm.sdk.common.DKParts@6a4f1a55"
+2018-07-27 20:59:12.622 [main] INFO  com.tarion.migration.Accessibility - WARNING: In the following record with the 'CaseId' attribute is NULL  :******Attributes:
+                </code>
+                <code>
+2018-07-27 20:59:17.731 [main] INFO  com.tarion.migration.MigrationMove - Committed so far: 150
+2018-07-27 20:59:17.919 [main] INFO  com.tarion.migration.MigrationMove - Total records processed:154
+2018-07-27 20:59:17.919 [main] INFO  com.tarion.migration.MigrationMove - Total warnings: 0                    
+                </code>
+            </pre>
+          </div>
+
+        <script src="js/prettify-1.0.min.js"></script>
+        <script src="js/base.js"></script>
+    </body>
+</html>
